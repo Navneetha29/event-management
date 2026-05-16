@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api',
+    baseURL: import.meta.env.MODE === 'production' ? '/api' : 'http://localhost:5000/api',
 });
 
 // Request interceptor to add the JWT token to headers if it exists
